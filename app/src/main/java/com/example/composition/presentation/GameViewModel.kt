@@ -91,7 +91,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private fun checkAnswer(number: Int) {
-        val rightAnswer = question.value?.rightAnswer
+        val rightAnswer = _question.value?.rightAnswer
         if (number == rightAnswer) {
             countOfRightAnswers++
         }
@@ -133,7 +133,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
 
     private fun finishGame() {
         _gameResult.value = GameResult(
-            enoughCount.value == true && enoughPercent.value == true,
+            _enoughCount.value == true && _enoughPercent.value == true,
             countOfRightAnswers,
             countOfQuestions,
             gameSettings
